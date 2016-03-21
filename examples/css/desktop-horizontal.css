@@ -36,6 +36,13 @@ h2 {
 	font-weight: normal;
 	text-align: center;
 	margin-top: 0;
+	margin-bottom: .4em;
+}
+
+.hint {
+	margin-top: 0;
+	font-size: .16em;
+	text-align: center;
 }
 
 ul {
@@ -45,7 +52,7 @@ ul {
 }
 
 ul li {
-	font-size: .26em;
+	font-size: .24em;
 	line-height: 1.5;
 }
 
@@ -70,7 +77,8 @@ ul li {
 
 .example-img .image-title * {
 	display: block;
-	font-size: .16em;
+	font-size: .16em; /* Relative to body font size (no font size in parent elements) */
+	letter-spacing: .1em; ; /* Relative to this element font size */
 	font-weight: bold;
 	color: #222;
 }
