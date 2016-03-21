@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Emlastic - Desktop Horizontal</title>
+
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css">
+	<link href="css/desktop-horizontal.css" rel="stylesheet" type="text/css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+	<!-- Load local lib and tests. -->
+	<script src="../src/emlastic.js"></script>
+</head>
+<body>
+	<div class="page-content">
+		<h1>Elastic Design Using EM</h1>
+		<h2>Desktop Horizontal Layout</h2>
+
+		<div class="example-img">
+			<img src="images/flower.jpg" alt="Flowers">
+			<div class="image-title">
+				<span>Example Placeholder Image</span>
+			</div>
+		</div>
+
+		<ul>
+			<li>
+				<strong>Design Width:</strong>
+				<span>1920</span>
+			</li>
+			<li>
+				<strong>Direction:</strong>
+				<span>Horizontal</span>
+			</li>
+			<li>
+				<strong>Container:</strong>
+				<span>window</span>
+			</li>
+			<li>
+				<strong>Pixels in EM:</strong>
+				<span>100</span>
+			</li>
+		</ul>
+
+
+		<script type="application/javascript">
+			$(document).ready(function() {
+				$('body').emlastic({
+					designWidth: 1920,
+					direction: 'horizontal',
+					container: window
+				});
+			});
+
+		</script>
+	</div>
+</body>
+</html>

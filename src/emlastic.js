@@ -4,10 +4,12 @@
  * Licensed under the MIT license.
  */
 (function ($) {
-	$.fn.emlastic = function () {
+	$.fn.emlastic = function (options) {
+		var opts = $.extend({}, $.fn.emlastic.defaults, options);
+
 		return this.each(function () {
 			var $element = $(this);
-			var containerElement = null;
+			var $container = null;
 			var previousValue = 0;
 			var totalEms = parseInt(opts.designSize) / parseFloat(opts.pixelsInEm);
 
@@ -17,12 +19,15 @@
 
 			switch (opts.container) {
 				case 'window':
-					containerElement = window;
+					$container = $(window);
 					break;
 
 				default:
-					containerElement = this;
-					break;
+					if (opts.container != null) {
+						$container = $(opts.container);
+					} else {
+						$container = $element;
+					}
 			}
 
 			function calculateContainerSize() {
@@ -32,19 +37,19 @@
 					} else if ($.isFunction(opts.containerSize)) {
 						return opts.containerSize($element[0], opts);
 					} else {
-						throw 'Container size can only be number or function.';
+						throw 'Container size can only be a number or function.';
 					}
 				}
 
 				switch (opts.direction) {
 					case 'horizontal':
-						return containerElement.innerHeight;
+						return $container.width();
 
 					case 'vertical':
-						return containerElement.innerWidth;
+						return $container.height();
 
 					default:
-						return containerElement.innerWidth;
+						return $container.height();
 				}
 			}
 
@@ -81,7 +86,7 @@
 		pixelsInEm: 100,
 		designSize: 1920,
 		direction: 'horizontal',
-		containerSize: null,
+		containerSize: null, // Setting container size will block automatic size detection
 		container: null // By default this is the element where you are attaching the directive
 	}
 }(jQuery));

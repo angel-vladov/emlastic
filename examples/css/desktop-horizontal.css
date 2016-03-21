@@ -1,0 +1,77 @@
+html, body {
+	min-height: 100%;
+}
+
+body {
+	font-family: 'Open Sans', sans-serif;
+
+}
+
+body::before {
+	content: "";
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background: url("../images/rubber-bands.jpg") no-repeat center center / cover;
+	opacity: .1;
+}
+
+.page-content {
+	position: relative;
+	z-index: 10;
+}
+
+h1 {
+	font-size: .60em;
+	font-weight: normal;
+	text-align: center;
+	margin-bottom: 0;
+}
+
+h2 {
+	font-size: .40em;
+	color: #666;
+	font-weight: normal;
+	text-align: center;
+	margin-top: 0;
+}
+
+ul {
+	margin-top: .30em;
+	margin-bottom: .40em;
+	padding-left: 2.00em;
+}
+
+ul li {
+	font-size: .26em;
+	line-height: 1.5;
+}
+
+.example-img {
+	display: block;
+	width: 6.40em;
+	margin: .40em auto 0;
+	border: 1px solid rgba(0, 0, 0, .4);
+}
+
+.example-img img {
+	display: block;
+	width: 6.40em;
+	height: 4.26em;
+	border-bottom: 1px solid rgba(0, 0, 0, .4);
+}
+
+.example-img .image-title {
+	padding: .10em .16em;
+	background-color: rgba(0, 0, 0, .1);
+}
+
+.example-img .image-title * {
+	display: block;
+	font-size: .16em;
+	font-weight: bold;
+	color: #222;
+}
+
