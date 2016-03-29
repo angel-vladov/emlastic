@@ -4,6 +4,7 @@
  * Licensed under the MIT license.
  */
 (function ($) {
+	
 	$.fn.emlastic = function (options) {
 		var opts = $.extend({}, $.fn.emlastic.defaults, options);
 
@@ -16,20 +17,16 @@
 			if (!totalEms || isNaN(totalEms)) {
 				totalEms = 100; // TODO: Throw an error
 			}
-
-			switch (opts.container) {
-				case 'window':
-					$container = $(window);
-					break;
-
-				default:
-					if (opts.container != null) {
-						$container = $(opts.container);
-					} else {
-						$container = $element;
-					}
+			
+			// Identify the correct container
+			if (opts.container === 'window') {
+				$container = $(window);
+			} else if (opts.container != null) { // jhint ignore:line
+				$container = $(opts.container);
+			} else {
+				$container = $element;
 			}
-
+			
 			function calculateContainerSize() {
 				if (opts.containerSize != null) { // jshint ignore:line
 					if ($.isNumeric(opts.containerSize)) {
@@ -88,5 +85,5 @@
 		direction: 'horizontal',
 		containerSize: null, // Setting container size will block automatic size detection
 		container: null // By default this is the element where you are attaching the directive
-	}
+	};
 }(jQuery));
